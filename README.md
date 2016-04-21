@@ -1,17 +1,25 @@
-#Alura
+# Minicurso de Git
+*Bruno Habermann*
 
-#Iniciando um projeto com o GIT
+Você pode consultar também os seguintes locais para ter uma visão geral sobre o git
 
+[Git - Primeiros Passos][first_steps]
+[Git - Guia Prático][guide]
+
+## Iniciando um projeto com o GIT
+
+```
 git init -- inicializa a pasta para usar o git
 git ls-files -- arquivos controlados
 git status -- status de todos os arquivos no diretório
-git add -- adiciona os arquivos alterados
+git add . -- adiciona os arquivos alterados
 git commit -m "Promeiro commit" -- versiona a alteração com um comentário
 
 git config --global user.name "Seu Nome"
 git config --global user.email "seu@email.com"
 
 git commit -am "Segundo commit" -- aglutina os comandos "add" e "commit -m"
+```
 
 #alterações efetuadas
 
@@ -181,3 +189,7 @@ Colaboration Model -> Centralized
 Branching Model -> Product workflow
 Adopt Git Practices -> Pull request / Single Repository
 Automation & CI setup -> hooks (estudar)
+
+
+[first_steps]:https://gist.github.com/adammacias/bb358a90a4f4cea50b41
+[guide]:http://rogerdudler.github.io/git-guide/index.pt_BR.html
