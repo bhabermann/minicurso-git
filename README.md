@@ -101,7 +101,7 @@ Corrigimos os conflitos e continuamos
 
 ```
 git add [arquivos com conflito resolvidos]
-git rebase //continue
+git rebase --continue
 ```
 
 ## Controles avançados
