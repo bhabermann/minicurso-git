@@ -139,8 +139,10 @@ Para criarmos um **Alias**, basta editar o arquivo `.gitconfig` na pasta de usu√
 
 Por exemplo:
 
+```
 [alias]
 	envia = !git checkout master && git pull && git checkout desenvolvimento && git rebase master && git checkout master && git merge desenvolvimento && git push
+```
 
 
 
