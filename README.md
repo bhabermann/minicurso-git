@@ -6,7 +6,9 @@ Você pode consultar também os seguintes locais para ter uma visão geral sobre
 [Git - Primeiros Passos][first_steps]<br />
 [Git - Guia Prático][guide]
 
-## Iniciando um projeto com o GIT
+## Primeiros Passos
+
+### Iniciando um projeto com o GIT
 
 ```bash
 git init // inicializa a pasta para usar o git
@@ -21,104 +23,128 @@ git config --global user.email "seu@email.com"
 git commit -am "Segundo commit" // aglutina os comandos "add" e "commit -m"
 ```
 
-#alterações efetuadas
+### Alterações efetuadas
 
-git whatchanged -- lista os arquivos alterados
-git whatchanged -p -- lista os arquivos alterados com as linhas alteradas também
+```
+git whatchanged // lista os arquivos alterados
+git whatchanged -p // lista os arquivos alterados com as linhas alteradas também
+```
 
-# espelhar repositório na rede e enviar arquivos
+### Espelhar repositório na rede e enviar arquivos
 
-git remote -- lista os repositorios remotos
-git remote add origin URL -- o nome origin é uma convenção para nomear o repositório remoto
+```
+git remote // lista os repositorios remotos
+git remote add origin URL // o nome origin é uma convenção para nomear o repositório remoto
 
-git push origin master -- enviar | qual servidor | qual branch
+git push -u origin master // enviar | vincular | qual servidor | qual branch
+```
 
-# clonar um repositório pronto
+### Clonar um repositório pronto
 
+```
 git clone URL
+```
 
-# branches
+### Branches
 
-git branch -- lista branches
-git branch nome_da_branch -- cria uma nova branch
-git checkout nome_da_branch -- muda para a branch
+```
+git branch // lista branches
+git branch nome_da_branch // cria uma nova branch
+git checkout nome_da_branch // muda para a branch
 
-git checkout -b nome_da_branch -- cria e altera para a branch
+git checkout -b nome_da_branch // cria e altera para a branch
 
-git branch -- para confirmarmos a branch que estamos (com *)
+git branch // para confirmarmos a branch que estamos (com *)
 
-git branch -r -- lista as branches remotas
+git branch -r // lista as branches remotas
 
-git branch -t nome_local origin/nome_remoto -- vincula a branch local à branch remota
+git branch -t nome_local origin/nome_remoto // vincula a branch local à branch remota
 
-git branch -d nome_da_branch -- remove a branch local
+git branch -d nome_da_branch // remove a branch local
+```
 
-
-# Conflitos
+### Conflitos
 * Merge automático se alterado em linhas diferentes
-* MErge manual se alterada a mesma linha/bloco
+  * Não gera conflito
+* Merge manual se alterada a mesma linha/bloco
+  * Gera conflito
 
-# Boas práticas
+## Boas práticas
 
-## Rebase
+### Rebase
 
 Trabalhar sempre num branch de desenvolvimento local
-git checkout -b desenvolvimento -- cria e entra na branch desenvolvimeto
+```
+git checkout -b desenvolvimento // cria e entra na branch desenvolvimeto
+```
 
-Efetua os trabalhos todos nesta branch local *desenvolvimento*
-
-git checkout master -- mudar para o branch master
-git pull -- atualizar com as informações do repositório
-git checkout desenvolvimento -- muda para o branch desenvolvimento
-git rebase master [desenvolvimento] -- quando se está na branch que receberá o rebase, o último comando é opcional
+Efetuar os trabalhos todos nesta branch local *desenvolvimento*
+```
+git checkout master // mudar para o branch master
+git pull // atualizar com as informações do repositório
+git checkout desenvolvimento // muda para o branch desenvolvimento
+git rebase master [desenvolvimento] // quando se está na branch que receberá o rebase, o último comando é opcional
 git checkout master
 git merge desenvolvimento
 git push
+```
 
-### Possíveis problemas
+#### Possíveis problemas
 
 Pode haver algum conflito no momento de efetuar o rebase, neste caso temos que resolver este conflito, de forma semelhante ao merge com o seguinte procedimento:
 
-git rebase master -- deu erro
+```
+git rebase master // deu erro
+```
 
 Corrigimos os conflitos e continuamos
 
+```
 git add [arquivos com conflito resolvidos]
-git rebase --continue
+git rebase //continue
+```
 
+## Controles avançados
 
-# Controles avançados
+Como voltar a versão local de um arquivo?
+```
+git checkout "arquivo" // volta arquivo não adicionado (git add)
+git reset HEAD "arquivo" // volta arquivo já adicionado (git add)
+```
 
-git checkout "arquivo" -- volta arquivo não adicionado (git add)
-git reset HEAD "arquivo" -- volta arquivo já adicionado (git add)
+E se já tiver efetuado o comit?
+```
+git reset {HASH} // reseta(desfaz) todos os commits até o indentificador
+```
 
-se já tiver efetuado o comit?
+Mas e se for um comite antigo?
+```
+git revert {HASH} // reverte somente o commit passado e cria um novo commit para gravar este reverte
+```
 
-git reset {HASH} -- reseta(desfaz) todos os commits até o indentificador
+E se eu tiver alterações não commitadas e quiser efetuar alguma alteração e commitar sem que esta seja afetada?
+```
+git stash // Salva as alterações atuais e retornar para a versão do INDEX
+git stash list // Mostra todas as alterações guardadas no Stash
+git stash pop // Devolve a última alteração do Stash para o Working Copy
+git stash apply {HAS} // Devolve somente as alterações do {HASH} especificado
+git stash drop // Apaga todo o stash
+```
 
-desfazer um commit antigo
+## Facilidades
 
-git revert {HASH} -- reverte somente o commit passado e cria um novo commit para gravar este reverte
+Podemos criar apelidos para os comandos utilizados com frequencia para que não precisemos digitar muita coisa em vários passos, como por exemplo o processo de rebase.
 
-guardar alterações não comitadas
+Para criarmos um **Alias**, basta editar o arquivo `.gitconfig` na pasta de usuário do sistema e adicionar a seção [alias] com os apelidos desejados.
 
-git stash
-
-
-# Facilidades
-
-Alias para o rebase: Basta editar o arquivo `.gitconfig` na pasta de usuário do sistema e adicionar a seção [alias] com os apelidos desejados. Por exemplo:
+Por exemplo:
 
 [alias]
 	envia = !git checkout master && git pull && git checkout desenvolvimento && git rebase master && git checkout master && git merge desenvolvimento && git push
 
 
 
-
-
-
-
-# Atlassian
+# Git workflow
 
 # Models
 
