@@ -1,6 +1,6 @@
 # Teste
 
-Daniel: o maximo :D
+Daniel: o maximo :D \o/o\o/\o/\/\o\/o\/o\o/o/\/\o/
 
 Renato: testando aqui
 
