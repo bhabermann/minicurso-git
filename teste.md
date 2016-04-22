@@ -2,7 +2,7 @@
 
 Daniel: o maximo :D
 
-Renato: testando aqui
+Renato: testando aqui, alterando para testar o rebase
 
 Richard: Não alterou
 
