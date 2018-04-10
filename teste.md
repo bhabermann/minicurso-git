@@ -1,3 +1,3 @@
 # Rebase / Merge com conflitos
 
-Alteração na mesma linha nem semnpre gera conflito
+Alterar a mesma linha nem semnpre gera conflito
